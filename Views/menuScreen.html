@@ -1,0 +1,155 @@
+
+<html>
+	<head>
+		<title>Menu</title>
+
+		<style type="text/css">
+
+			body {
+				background-color: black;
+			}
+
+			img {
+
+				margin-right: auto;
+				margin-left: auto;
+				margin-top: 40px;
+				border: 5px solid #008FFF;
+				border-radius: 5px;
+
+
+				-webkit-transition: all .9s ease-in-out;
+				-webkit-transition: all .4s ease-in-out;
+				-moz-transition: all .4s ease-in-out;
+			}
+
+			img:hover{
+
+				opacity: .5;
+				-webkit-transition: all .9s ease-in-out;
+				-webkit-transition: all .4s ease-in-out;
+				-moz-transition: all .4s ease-in-out;
+
+			}
+
+			.container{
+				background-color: black;
+				width: 550px;
+				height: auto;
+				margin-left: auto;
+				margin-right:  auto;
+
+			}
+
+			figcaption{
+				
+				color: white;
+				width: 100px;
+			}
+
+			th {
+				color: white;
+				border-bottom: 20px solid #008FFF;
+
+			}
+
+
+			h1 {
+				color : white;
+			}
+
+			a:link {
+				text-decoration: none;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+			td{
+				color: white;
+				text-align: center;
+				border-bottom: 50px solid #008FFF;
+				margin: 0px;
+
+
+			}
+			table{
+				width: 600px;
+				border: 20px solid #008FFF;
+				border-radius: 5px;
+				outline: thin solid;
+			}
+
+			div a{
+
+				display: inline-block;
+				padding: 10px;
+			}
+
+
+
+		</style>
+
+
+	</head>
+
+	<body>
+
+		<div class="pageControlButtons">
+
+			<a href="checkoutScreen_Controller.php?logout=true"><h1>Logout</h1></a>
+			<a href="userInfoScreen_Controller.php"><h1>Profile</h1></a>
+			<a href="checkoutScreen_Controller.php"><h1>Checkout</h1></a>
+			<a href="ordersScreen_Controller.php"><h1>Orders</h1></a>
+			
+
+		</div>
+
+		<div class="container">
+
+			
+			<?php
+
+				echo "<table>
+
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Product</th>
+								<th>Price</th>
+								<th>Type</th>
+								<th>Bag</th>
+							</tr>
+						</thead> 
+
+						<tbody>
+							";
+						
+						foreach($products as $product){
+
+					
+							echo  "<tr>
+
+								<td>".$product['Product_Id']."</td>
+								<td>".$product['Product_Name']."</td>
+								<td>".$product['Product_Price']."</td>
+								<td>".$product['Product_Type_Name']."</td>
+								<td><a href='cart.php?add=".$product['Product_Id']."'><button>ADD TO BAG</button></a></td>
+								</tr>
+							 ";
+
+				}
+
+				echo "</tr>
+					</tbody>";	
+
+			?>
+		
+		</div>
+
+	</body>
+
+</html>
+
+
+
